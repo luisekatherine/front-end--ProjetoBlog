@@ -5,19 +5,38 @@ PostController.$inject = [
   'PostService',
   '$routeParams',
   'type',
+  '$location'
 ];
 
-function PostController ($scope, PostService, $routeParams, type) {
+function PostController ($scope, PostService, $routeParams, type, $location) {
   $scope.save = () => {
-    PostService.update($scope.post).then(function (response) {
-      if (response.error) {
-        $scope.message = response.error
+    if ($scope.post.id) {
+      $scope.update();
       } else {
-        $scope.post = response;
+        $scope.create();
+      }
+    };    
+
+  $scope.update = () => {
+    PostService.update($scope.post).then(function (response) {
+      if (response) {
+        $location.path('/posts/'+$scope.post.id)
+      } else {
+        $scope.post = {};
       }
     })
-  };
-
+  }
+  
+  $scope.create = () => {
+    PostService.create($scope.post).then(function (response) {
+      if (response) {
+        $location.path('/posts/'+ response.id)
+      } else {
+        $scope.post = {};
+      }
+    })
+  }
+  
 
   const initialize = () => {
     if (type =='show' || type == 'form') {
@@ -26,7 +45,6 @@ function PostController ($scope, PostService, $routeParams, type) {
       PostService.get($routeParams.id).then(function (response) {
         if (response) {
           $scope.post = response;
-
         }
       });
 
@@ -41,5 +59,6 @@ function PostController ($scope, PostService, $routeParams, type) {
       });
     }
   };
+
   initialize();
 }

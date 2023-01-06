@@ -1,12 +1,18 @@
-<title>Post</title>
+<div class="container-post">
   <div class="post">
-    <p class="post-name">{{ post.title }}</p><a href="#/posts/{{ post.id }}/edit">Editar</a>
-    <div class="post-description"><p> {{ post.description }} </p></div>
+    <p class="post-name">{{ post.title | uppercase }}</p>
+    <div class="edit-post"><a class="edit-post-link" href="#/posts/{{ post.id }}/edit">Editar conteúdo</a></div>
+    <div class="post-description"><p class="post-description"> {{ post.description }} </p></div>
   </div>
   <div class="post-comments">
+    <p class="coment-title">Comentários:</p>
     <div class="post-comment" ng-repeat="comment in post.comments"> 
-      <p>
-      {{ comment.text }}
+      <p class="post-comment">
+      - {{ comment.text }}
       </p>
+      <div class="comentar-div">
+        <a class="comentar-link" href="#/posts/{{ post.id }}">Comentar</a>
+      </div>
     </div>
   </div>
+</div>

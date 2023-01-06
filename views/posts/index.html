@@ -11,12 +11,11 @@
   <div class="container">
     <div class="posts">
       <div class="posts-item" ng-repeat="post in posts">
-        <a class="caracteres" href="#/posts/{{ post.id }}">{{ post.title }}</a>
+        <a class="caracteres" href="#/posts/{{ post.id }}">{{ post.title | uppercase }}</a>
         <!-- <a href="#/posts/{{ post.id }}">{{ post.comment }}</a> para mostrar o número de comentários e os likes
         <a href="#/posts/{{ post.id }}">{{ post.like_post }}</a> -->
-        <a class="botao-ver-mais" href="#/posts/{{ post.id }}">Ver mais</a>
+        <a class="botao-ver-mais" href="#/posts/{{ post.id }}">Abrir post</a>
       </div>
-      
     </div>
   </div>
 </body>

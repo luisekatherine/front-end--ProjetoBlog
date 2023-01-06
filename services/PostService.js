@@ -10,7 +10,18 @@ app.service('PostService', ['$http', function ($http) {
       return response.data;
       });
 
-   const update = (post) => $http.put('http://localhost:3000/posts/'+post.id)
+  const update = (post) => $http.put('http://localhost:3000/posts/'+post.id, {
+    title: post.title,
+    description: post.description,
+   })
+    .then(function (response) {
+      return response.data;
+      });
+
+  const create = (post) => $http.post('http://localhost:3000/posts/', {
+    title: post.title,
+    description: post.description,
+   })
     .then(function (response) {
       return response.data;
       });
@@ -19,6 +30,7 @@ app.service('PostService', ['$http', function ($http) {
     list: list,
     get: get,
     update: update,
+    create: create,
     //o primeiro é o nome que vai ser puchado no postsController, o segundo é o nome como eu declarei  na const acima.
   }
 }]);

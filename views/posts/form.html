@@ -1,9 +1,10 @@
-<h3>Editar post</h3>
+<h3 class="link-edit-post"> {{ post.id ? 'Editar post' : 'Criar post'}}</h3>
 <form ng-submit="save()">
-  <input type="text" name="name" ng-model="post.title" required>
-  <textarea required> {{ post.description }}</textarea>
-  <button type="submit">Salvar</button>
-
+  <div class="form-container">
+  <input class="input-title" type="text" name="name" ng-model="post.title" placeholder="Titulo do post" required>
+  <textarea class="input-description" required ng-model="post.description" placeholder="Descrição do post"> {{ post.description }}</textarea>
+  <button class="botao-salvar-form" type="submit">Salvar</button>
+</div>
   <div class="error-edit">
     {{ message }}
   </div>

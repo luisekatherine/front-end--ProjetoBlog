@@ -1,5 +1,16 @@
 app.config(function($routeProvider, $locationProvider) {
 	$routeProvider
+	
+	.when('/posts/new', {
+		templateUrl: 'views/posts/form.html',
+		controller: 'PostsController',
+		resolve: {
+			type: () => {
+				return 'create'
+			}
+		}
+	})
+
 	.when('/posts', {
 		templateUrl: 'views/posts/index.html',
 		controller: 'PostsController',
@@ -27,6 +38,7 @@ app.config(function($routeProvider, $locationProvider) {
 			}
 		}
 	})
+
 	.when('/tags', {
 		templateUrl: 'views/tags.html',
 		controller: 'TagsController'
