@@ -1,0 +1,10 @@
+<h3 class="link-edit-tag"> {{ tag.id ? 'Editar tag' : 'Criar tag'}}</h3>
+<form ng-submit="save()">
+  <div class="form-container">
+  <input class="input-title" type="text" name="name" ng-model="tag.name" placeholder="Titulo da tag" required>
+  <button class="botao-salvar-form" type="submit">Salvar</button>
+</div>
+  <div class="error-edit">
+    {{ message }}
+  </div>
+</form>

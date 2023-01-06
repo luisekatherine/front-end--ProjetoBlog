@@ -359,3 +359,29 @@ a{
   -webkit-transform: scale(1.08);
   transform: scale(1.08);
 }
+
+/*tags*/
+
+.tag-name {
+  font-size: 24px;
+  color: #ffffff;
+  font-weight: bold;
+  width: 100%;
+}
+
+.container-tags-item {
+  display: inline-block;
+  background-color: #52b3c9;;
+  height: 80px;
+  border-radius: 15px;
+  margin: 30px;
+  text-align: center;
+  padding: 15px;
+
+}
+
+.edit-tag-link {
+  color: rgb(0, 49, 209);
+  font-size: 15px;
+  float: right;
+}

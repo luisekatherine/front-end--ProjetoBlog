@@ -38,10 +38,33 @@ app.config(function($routeProvider, $locationProvider) {
 			}
 		}
 	})
-
+	/*tags*/
+	.when('/tags/new', {
+		templateUrl: 'views/tags/form.html',
+		controller: 'TagsController',
+		resolve: {
+			type: () => {
+				return 'create'
+			}
+		}
+	})
 	.when('/tags', {
-		templateUrl: 'views/tags.html',
-		controller: 'TagsController'
+		templateUrl: 'views/tags/index.html',
+		controller: 'TagsController',
+		resolve: {
+			type: () => {
+				return 'index'
+			}
+		}
+	})
+	.when('/tags/:id/edit', {
+		templateUrl: 'views/tags/form.html',
+		controller: 'TagsController',
+		resolve: {
+			type: () => {
+				return 'form'
+			}
+		}
 	})
 });
 

@@ -47,8 +47,13 @@
             <a href="#/posts/new">Criar posts</a>
           </div>
         </div>
-        <a href="#/tags" class="itens-menu">Tags</a>
-      </div>
+        <div class="dropdown">
+          <button class="dropbtn">TAGS</button>
+          <div class="dropdown-content">
+            <a href="#/tags">Ver tags</a>
+            <a href="#/tags/new">Criar tags</a>
+          </div>
+        </div>
       <div class="profile">
         <strong class="name-header">  {{ currentUser.name }} </strong>
         <a href="#" ng-click="logoff()" class="logout">Sair</a>
@@ -68,5 +73,6 @@
   <script type="text/javascript" src="services/BlogService.js"></script>
   <script type="text/javascript" src="services/PostService.js"></script>
   <script type="text/javascript" src="services/TagService.js"></script>
+  
 </body>
 </html>

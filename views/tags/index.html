@@ -1,0 +1,9 @@
+<div class="container-tags">
+  <div class="tags">
+    <div class="container-tags-item" ng-repeat="tag in tags">
+      <p class="tag-name ">{{ tag.name | uppercase }}</p>
+        <div class="edit-tag"><a class="edit-tag-link" href="#/tags/{{ tag.id }}/edit">Editar</a></div>
+      </a>
+    </div>
+  </div>
+</div>
