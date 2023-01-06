@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style2.css" />
+  <title>Posts</title>
+</head>
+<body>
+  <div class="container">
+    <div class="posts">
+      <div class="posts-item" ng-repeat="post in posts">
+        <a class="caracteres" href="#/posts/{{ post.id }}">{{ post.title }}</a>
+        <!-- <a href="#/posts/{{ post.id }}">{{ post.comment }}</a> para mostrar o número de comentários e os likes
+        <a href="#/posts/{{ post.id }}">{{ post.like_post }}</a> -->
+        <a class="botao-ver-mais" href="#/posts/{{ post.id }}">Ver mais</a>
+      </div>
+      
+    </div>
+  </div>
+</body>
+</html>

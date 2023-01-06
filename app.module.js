@@ -1,0 +1,1 @@
+var app = angular.module('blog', ['ngRoute']); //o nome do ng app do tittle <html lang="pt-BR" ng-app="blog">
