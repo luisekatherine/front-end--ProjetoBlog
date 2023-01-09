@@ -94,6 +94,7 @@ a{
 
 .input-login {
   width: 100%;
+  font-size: 16px;
   margin-bottom: 8px;
   padding: 8px;  
   border: 1px solid #52b3c9c9;
@@ -107,7 +108,7 @@ a{
 
 .label-input {
     color: #bebcbc;
-    font-size: 14px;
+    font-size: 16px;
     text-align: left;
     margin-bottom: 4px;
     position: relative;
@@ -120,7 +121,7 @@ a{
   background: #52b3c9;
   padding: 8px 5px;
   color: rgb(0, 0, 0);
-  font-size: 15px;  
+  font-size: 16px;  
   font-weight: bold;
   border: 1px solid #a3d7e2; 
   margin-top: 10px;  
