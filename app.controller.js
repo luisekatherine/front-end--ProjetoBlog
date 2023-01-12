@@ -4,6 +4,12 @@ app.controller('blogController', ['$scope', 'BlogService', function ($scope, Blo
 		password: null
 	}
 	$scope.currentUser = {};
+
+	$scope.user = {
+		username: null,
+		password: null,
+		email: null,
+	}
 	
 	$scope.submitLogin = () => {
 		BlogService.login($scope.login).then(function (response) {
@@ -16,14 +22,17 @@ app.controller('blogController', ['$scope', 'BlogService', function ($scope, Blo
 				window.localStorage.setItem('id', response.id);
 				window.localStorage.setItem('email', response.email);
 				$scope.currentUser = {
-					name: response.name
+					name: response.name,
+					id: response.id
 				}
 			}
 		});
 	};
+
 	$scope.notLogged = () => {
 		return !window.localStorage.getItem('token');
 	};
+	
 	$scope.logged = () => {
 		return window.localStorage.getItem('token');
 	};
@@ -41,11 +50,11 @@ app.controller('blogController', ['$scope', 'BlogService', function ($scope, Blo
 		
 		if (token) {
 			$scope.currentUser = {
+				id: window.localStorage.getItem('id'),
 				name: window.localStorage.getItem('name')
 			}
 		}
 	}
-
 	initialize();
 }]);
 

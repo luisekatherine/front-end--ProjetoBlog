@@ -6,14 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="style2.css" />
   <title>Blog</title>
-  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 </head>
 
 <body ng-controller="blogController">
   <div class="form-login" ng-if="notLogged()">
     <div class="container-fluid">
-      <h1 class="sign_in">Sign in to Blog</h1>
-
+      <h1 class="head-cabecalho">Sign in to Blog</h1>
       <form ng-submit="submitLogin()">
         <label class="label-input">Email</label>
         <input type="text" 
@@ -21,18 +20,19 @@
                ng-model="login.username" 
                placeholder="Email address" 
                required="required" 
-               class="input-login">
+               class="input-form">
         <label class="label-input">Password</label>
         <input type="password"
                name="password" 
                ng-model="login.password" 
                placeholder="Password" 
                required="required" 
-               class="input-login">
+               class="input-form">
         <button type="submit" class="botao">Sign in</button>
         <div class="error-login">
           {{ message }}
         </div>
+        <p style="text-align: center;">New to Blog? <a href="#/user/new">Create an account</a></p>
       </form>
     </div>
   </div>
@@ -54,8 +54,10 @@
             <a href="#/tags/new">Criar tags</a>
           </div>
         </div>
+      </div>
       <div class="profile">
-        <strong class="name-header">  {{ currentUser.name }} </strong>
+        <strong class="name-header">
+          <a href="#/user/{{ currentUser.id }}/edit">{{ currentUser.name }}</a></strong>
         <a href="#" ng-click="logoff()" class="logout">Sair</a>
       </div>
     </div>
@@ -70,9 +72,13 @@
   <script type="text/javascript" src="app.controller.js"></script>
   <script type="text/javascript" src="controllers/PostsController.js"></script>
   <script type="text/javascript" src="controllers/TagsController.js"></script>
+  <script type="text/javascript" src="controllers/UsersController.js"></script>
   <script type="text/javascript" src="services/BlogService.js"></script>
+  <script type="text/javascript" src="services/CommentService.js"></script>
   <script type="text/javascript" src="services/PostService.js"></script>
   <script type="text/javascript" src="services/TagService.js"></script>
-  
+  <script type="text/javascript" src="services/UserService.js"></script>
+  <script type="text/javascript" src="components/comments/form.js"></script>
+  <script type="text/javascript" src="components/comments/list.js"></script>
 </body>
 </html>

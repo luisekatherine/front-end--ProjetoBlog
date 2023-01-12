@@ -5,10 +5,11 @@ PostController.$inject = [
   'PostService',
   '$routeParams',
   'type',
-  '$location'
+  '$location',
+  'CommentService',
 ];
 
-function PostController ($scope, PostService, $routeParams, type, $location) {
+function PostController ($scope, PostService, $routeParams, type, $location, CommentService) {
   $scope.save = () => {
     if ($scope.post.id) {
       $scope.update();
@@ -36,7 +37,12 @@ function PostController ($scope, PostService, $routeParams, type, $location) {
       }
     })
   }
-  
+
+  $scope.onComment = () => {
+    CommentService.list($scope.post.id).then(function(response){
+      $scope.post.comments = response
+    })
+  }
 
   const initialize = () => {
     if (type =='show' || type == 'form') {

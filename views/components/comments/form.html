@@ -1,0 +1,18 @@
+  <form ng-submit="save(comment)">
+    <div class="row">
+        <input class="input-comments"
+               type="text"
+               name="comment"
+               ng-model="comment.text"
+               placeholder="Escreva um comentário"
+               required>
+        <button class="comentar-div" type="submit"> {{ comment.id ? 'Atualizar' : 'Enviar' }}</button>
+      </div>
+    </form>
+    <p class="coment-title">Comentários:</p>
+    <div class="post-comment" ng-repeat="comment in post.comments">
+      <div class="row">
+        <div class="post-comment">- {{ comment.text }}</div>
+        <div class="edit-content" ng-click="editComment(comment)">Editar</div>
+      </div>
+    </div>
