@@ -1,0 +1,17 @@
+<div ng-if="comment">
+  <a ng-if="$root.currentUser.id == comment.user_id" ng-click="deleteComment(comment, post)">
+    <p class="edit-link">Excluir</p>
+  </a>
+</div>
+
+<div ng-if="tag">
+  <a ng-click="deleteTag(tag)">
+    <p class="edit-link">Excluir</p>
+  </a>
+</div>
+
+<div ng-if="post">
+  <a ng-if="$root.currentUser.id == post.user_id" ng-click="deletePost(post)">
+    <p class="edit-link">Excluir</p>
+  </a>
+</div>

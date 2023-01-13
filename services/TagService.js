@@ -24,11 +24,14 @@ app.service('TagService', ['$http', function ($http) {
       return response.data;
       });
 
+  const remove = (id) => $http.delete('http://localhost:3000/tags/'+id)
+
   return {
     list: list,
     get: get,
     update: update,
     create: create,
+    remove: remove,
     //o primeiro é o nome que vai ser puchado no postsController, o segundo é o nome como eu declarei  na const acima.
   }
 }]);

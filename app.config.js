@@ -1,6 +1,8 @@
 app.config(function($routeProvider, $locationProvider) {
 	$routeProvider
 	
+	/* posts */
+
 	.when('/posts/new', {
 		templateUrl: 'views/posts/form.html',
 		controller: 'PostsController',
@@ -10,7 +12,6 @@ app.config(function($routeProvider, $locationProvider) {
 			}
 		}
 	})
-
 	.when('/posts', {
 		templateUrl: 'views/posts/index.html',
 		controller: 'PostsController',
@@ -38,7 +39,7 @@ app.config(function($routeProvider, $locationProvider) {
 			}
 		}
 	})
-	/*tags*/
+	/* tags */
 	.when('/tags/new', {
 		templateUrl: 'views/tags/form.html',
 		controller: 'TagsController',
@@ -66,7 +67,7 @@ app.config(function($routeProvider, $locationProvider) {
 			}
 		}
 	})
-	/*users*/
+	/* users */
 	.when('/user/:id/edit', {
 		templateUrl: 'views/users/form.html',
 		controller: 'UsersController',
@@ -86,33 +87,6 @@ app.config(function($routeProvider, $locationProvider) {
 		}
 	})
 })
-// .when('/posts/:id/comments/new', {
-// 	templateUrl: 'views/components/comments/form.html',
-// 	controller: 'function ($scope, CommentService)',
-// 	resolve: {
-// 		type: () => {
-// 			return 'create'
-// 		}
-// 	}
-// })
-// .when('/posts/:id/comments/:id/edit', {
-// 	templateUrl: 'views/components/comments/form.html',
-// 	controller: 'function ($scope, CommentService)',
-// 	resolve: {
-// 		type: () => {
-// 			return 'update'
-// 		}
-// 	}
-// })
-// .when('/posts/:id/comments', {
-// 	templateUrl: 'views/components/comments/form.html',
-// 	controller: 'function ($scope, CommentService)',
-// 	resolve: {
-// 		type: () => {
-// 			return 'delete'
-// 		}
-// 	}
-// })
 
 app.config(['$httpProvider', Interceptor]);
 function Interceptor($httpProvider) {

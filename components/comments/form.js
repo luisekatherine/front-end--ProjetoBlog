@@ -8,7 +8,7 @@ app.directive('commentForm', function () {
       callback: '&?',
     },
     templateUrl: 'views/components/comments/form.html',
-    controller: function ($scope, CommentService) {
+    controller: function ($scope, $window, CommentService) {
       $scope.save = () => {
         if ($scope.comment.id) {
           let updateComment = {
@@ -16,7 +16,6 @@ app.directive('commentForm', function () {
             text: $scope.comment.text,
             id: $scope.comment.id,
           };
-          
           CommentService.update(updateComment).then(function(response) {
             if (response.error) {
               alert(response.error);
@@ -28,7 +27,6 @@ app.directive('commentForm', function () {
               }
             }
           })
-
         } else {
           let createComment = {
             postId: $scope.postId,
@@ -39,7 +37,6 @@ app.directive('commentForm', function () {
             if (response.error) {
               alert(response.error);
             } else {
-              alert("Comentário enviado com sucesso!");
               $scope.comment = {};
               if ($scope.callback) {
                 $scope.callback();
@@ -48,6 +45,15 @@ app.directive('commentForm', function () {
           })
         }
       };
+
+      // $scope.deleteComment = (comment) => {
+      //   let deleteComment = {
+      //     postId: $scope.postId,
+      //     id: comment.id,
+      //   };
+      //   CommentService.remove(deleteComment)
+      //   $window.location.reload()
+      // }
 
       $scope.editComment = (comment) => {
         $scope.currentComment = comment

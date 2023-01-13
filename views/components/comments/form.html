@@ -12,7 +12,11 @@
     <p class="coment-title">Comentários:</p>
     <div class="post-comment" ng-repeat="comment in post.comments">
       <div class="row">
+        <div class="container-coment">
         <div class="post-comment">- {{ comment.text }}</div>
-        <div class="edit-content" ng-click="editComment(comment)">Editar</div>
+        <div class="edit-content" ng-if="$root.currentUser.id == comment.user_id" ng-click="editComment(comment)">Editar</div>
+        <delete comment="comment" post="post"></delete>
+      </div>
       </div>
     </div>
+  

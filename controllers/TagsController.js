@@ -5,10 +5,11 @@ TagController.$inject = [
   'TagService',
   '$routeParams',
   'type',
-  '$location'
+  '$location',
+  '$window',
 ];
 
-function TagController ($scope, TagService, $routeParams, type, $location) {
+function TagController ($scope, TagService, $routeParams, type, $location, $window) {
   $scope.save = () => {
     if ($scope.tag.id) {
       $scope.update();
@@ -20,7 +21,7 @@ function TagController ($scope, TagService, $routeParams, type, $location) {
   $scope.update = () => {
     TagService.update($scope.tag).then(function (response) {
       if (response) {
-        $location.path('/tags/'+$scope.tag.id)
+        $location.path('/tags')
       } else {
         $scope.tag = {};
       }
@@ -36,7 +37,6 @@ function TagController ($scope, TagService, $routeParams, type, $location) {
       }
     })
   }
-  
 
   const initialize = () => {
     if (type == 'form') {
@@ -49,7 +49,6 @@ function TagController ($scope, TagService, $routeParams, type, $location) {
       });
     } else {
       $scope.tags = [];
-
       TagService.list().then(function (response) {
         if (response && response.length > 0) {
           $scope.tags = response;

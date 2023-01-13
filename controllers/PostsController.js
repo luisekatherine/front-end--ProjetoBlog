@@ -31,7 +31,7 @@ function PostController ($scope, PostService, $routeParams, type, $location, Com
   $scope.create = () => {
     PostService.create($scope.post).then(function (response) {
       if (response) {
-        $location.path('/posts/'+ response.id)
+        $location.path('/posts/'+ response.id) //location.path é o que direciona o usuário para a página. então aí estou dizendo que vai redirecionar para o post criado, sendo posts + a resposta de id que recebemos ao criar.
       } else {
         $scope.post = {};
       }
@@ -53,14 +53,12 @@ function PostController ($scope, PostService, $routeParams, type, $location, Com
           $scope.post = response;
         }
       });
-
     } else {
       $scope.posts = [];
 
       PostService.list().then(function (response) {
         if (response && response.length > 0) {
           $scope.posts = response;
-
         }
       });
     }

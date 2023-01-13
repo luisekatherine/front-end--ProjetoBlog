@@ -1,9 +1,9 @@
-app.controller('blogController', ['$scope', 'BlogService', function ($scope, BlogService){
+app.controller('blogController', ['$rootScope', '$scope', 'BlogService', '$window', function ($rootScope, $scope, BlogService, $window,){
 	$scope.login = {
 		username: null,
 		password: null
 	}
-	$scope.currentUser = {};
+	$rootScope.currentUser = {};
 
 	$scope.user = {
 		username: null,
@@ -21,7 +21,7 @@ app.controller('blogController', ['$scope', 'BlogService', function ($scope, Blo
 				window.localStorage.setItem('name', response.name);
 				window.localStorage.setItem('id', response.id);
 				window.localStorage.setItem('email', response.email);
-				$scope.currentUser = {
+				$rootScope.currentUser = {
 					name: response.name,
 					id: response.id
 				}
@@ -42,14 +42,14 @@ app.controller('blogController', ['$scope', 'BlogService', function ($scope, Blo
 		window.localStorage.removeItem('name');
 		window.localStorage.removeItem('id');
 		window.localStorage.removeItem('email');
-		$scope.currentUser = {};
+		$rootScope.currentUser = {};
 	}
 	
 	const initialize = () => {
 		let token = window.localStorage.getItem('token');
 		
 		if (token) {
-			$scope.currentUser = {
+			$rootScope.currentUser = {
 				id: window.localStorage.getItem('id'),
 				name: window.localStorage.getItem('name')
 			}

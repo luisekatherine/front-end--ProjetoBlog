@@ -25,7 +25,7 @@ app.directive('commentList', function () {
             }
           })
         };
-      
+        
       initialize();
     }
   }

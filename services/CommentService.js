@@ -25,10 +25,7 @@ app.service('CommentService', ['$http', function ($http) {
     }
   });
   
-  const remove = (comment) => $http.delete('http://localhost:3000/comments'+id)
-    .then(function (response){
-      return response.data;
-    })
+  const remove = (comment) => $http.delete('http://localhost:3000/posts/'+comment.postId+'/comments/'+comment.id)
 
   return {
     list: list,
