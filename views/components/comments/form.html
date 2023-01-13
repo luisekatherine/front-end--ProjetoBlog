@@ -13,10 +13,14 @@
     <div class="post-comment" ng-repeat="comment in post.comments">
       <div class="row">
         <div class="container-coment">
-        <div class="post-comment">- {{ comment.text }}</div>
-        <div class="edit-content" ng-if="$root.currentUser.id == comment.user_id" ng-click="editComment(comment)">Editar</div>
-        <delete comment="comment" post="post"></delete>
-      </div>
+          <div class="post-comment">- {{ comment.text }}</div>
+          <div class="edit-content" ng-if="$root.currentUser.id == comment.user_id">
+            <div class="edit-link" ng-if="$root.currentUser.id == comment.user_id" ng-click="editComment(comment)">
+              <div class="edit-content" ng-if="$root.currentUser.id == comment.user_id" ng-click="editComment(comment)"><i class="gg-pen"></i></div>
+            </div>
+            <delete class="edit-link" comment="comment" post="post"></delete>
+          </div>
+        </div>
       </div>
     </div>
   

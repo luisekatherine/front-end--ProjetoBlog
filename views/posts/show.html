@@ -1,15 +1,18 @@
 <div class="container-post">
-  <div class="post">
-    <p class="post-tags">
-      <i class="gg-tag"></i>Tags:
-        <div class="post-tags" ng-repeat="tag in post.tags"> 
-        - {{ tag.name | uppercase }}
-        </div>
-    </p>
-  </div>
-    <div class="edit-content">
-      <a class="edit-link" ng-if="$root.currentUser.id == post.user_id" href="#/posts/{{ post.id }}/edit">Editar conteúdo</a> |
-      <delete post="post"></delete>
+<div class="container-tags">
+  <p class="post-tags">Tags:
+    <div class="post-tags" ng-repeat="tag in post.tags"> 
+    - {{ tag.name | uppercase }}
+    </div>
+  </p>
+
+</div>
+    <div class="edit-content" ng-if="$root.currentUser.id == post.user_id" a href="#/posts/{{ post.id }}/edit">
+      <a class="edit-link"><i class="gg-tag"></i></a>
+      <a class="edit-link" ng-if="$root.currentUser.id == post.user_id" href="#/posts/{{ post.id }}/edit">
+        <i class="gg-pen"></i>
+      </a>    
+      <delete class="edit-link" post="post"></delete>
     </div>
     <p class="post-name">{{ post.title | uppercase }}</p>
     <div class="post-description"><p class="post-description"> {{ post.description }} </p>
@@ -17,3 +20,11 @@
   <comment-form post-id="post.id" callback="onComment()" current-comment="currentComment" post="post"></comment-form>
 </div>
 
+<!-- 
+<div class="post">
+  <p class="post-tags">Tags:
+    <div class="post-tags" ng-repeat="tag in post.tags"> 
+    - {{ tag.name | uppercase }}
+    </div>
+  </p>
+</div> -->

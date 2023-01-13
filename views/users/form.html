@@ -1,7 +1,9 @@
-<div>
+<div class="sign-in" ng-if="!user.id">
+  <p>Already have an account? <a class="newtoblog" href="http://localhost/blog/"> Sign in →</a></p>
+</div>
   <div class="form-create-an-account">
     <div class="container-fluid">
-      <h1 class="head-cabecalho">{{ user.id ? 'Editar usuário' : 'Criar usuário'}}</h1>
+      <h1 class="head-cabecalho">{{ user.id ? 'Edit user' : 'Criate user'}}</h1>
       <form ng-submit="save(user)">
         <label class="label-input">Name</label>
         <input type="text" 
@@ -31,4 +33,3 @@
       </form>
     </div>
   </div>
-</div>
