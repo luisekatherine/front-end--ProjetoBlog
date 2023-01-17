@@ -6,10 +6,9 @@ TagController.$inject = [
   '$routeParams',
   'type',
   '$location',
-  '$window',
 ];
 
-function TagController ($scope, TagService, $routeParams, type, $location, $window) {
+function TagController ($scope, TagService, $routeParams, type, $location) {
   $scope.save = () => {
     if ($scope.tag.id) {
       $scope.update();
@@ -31,7 +30,7 @@ function TagController ($scope, TagService, $routeParams, type, $location, $wind
   $scope.create = () => {
     TagService.create($scope.tag).then(function (response) {
       if (response) {
-        $location.path('/tags/'+ response.id)
+        $location.path('/tags')
       } else {
         $scope.tag = {};
       }

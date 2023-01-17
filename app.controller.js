@@ -1,4 +1,4 @@
-app.controller('blogController', ['$rootScope', '$scope', 'BlogService', '$window', function ($rootScope, $scope, BlogService, $window,){
+app.controller('blogController', ['$rootScope', '$scope', 'BlogService', '$location', function ($rootScope, $scope, BlogService, $location,){
 	$scope.login = {
 		username: null,
 		password: null
@@ -25,6 +25,7 @@ app.controller('blogController', ['$rootScope', '$scope', 'BlogService', '$windo
 					name: response.name,
 					id: response.id
 				}
+				$location.path('/posts')
 			}
 		});
 	};

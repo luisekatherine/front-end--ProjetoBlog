@@ -24,7 +24,20 @@ app.service('TagService', ['$http', function ($http) {
       return response.data;
       });
 
-  const remove = (id) => $http.delete('http://localhost:3000/tags/'+id)
+  const remove = (id) => $http.delete('http://localhost:3000/tags/'+id);
+
+  const linkPostTag = (post, tag) => $http.post('http://localhost:3000/posts/'+post.id+'/tag', {
+    post: {
+      tag_id: tag.id,
+    }
+  });
+
+  const unlinkPostTag = (post, tag) => $http.delete('http://localhost:3000/posts/'+post.id+'/tag/'+tag.id);
+
+  const listByPost = (postId) => $http.get('http://localhost:3000/posts/'+postId+'/tags')
+    .then(function (response) {
+      return response.data;
+      });
 
   return {
     list: list,
@@ -32,6 +45,9 @@ app.service('TagService', ['$http', function ($http) {
     update: update,
     create: create,
     remove: remove,
+    linkPostTag: linkPostTag,
+    unlinkPostTag: unlinkPostTag,
+    listByPost: listByPost,
     //o primeiro é o nome que vai ser puchado no postsController, o segundo é o nome como eu declarei  na const acima.
   }
 }]);

@@ -7,9 +7,10 @@ PostController.$inject = [
   'type',
   '$location',
   'CommentService',
+  'TagService',
 ];
 
-function PostController ($scope, PostService, $routeParams, type, $location, CommentService) {
+function PostController ($scope, PostService, $routeParams, type, $location, CommentService, TagService) {
   $scope.save = () => {
     if ($scope.post.id) {
       $scope.update();
@@ -41,6 +42,12 @@ function PostController ($scope, PostService, $routeParams, type, $location, Com
   $scope.onComment = () => {
     CommentService.list($scope.post.id).then(function(response){
       $scope.post.comments = response
+    })
+  }
+
+  $scope.onLinkTag = () => {
+    TagService.listByPost($scope.post.id).then(function(response){
+      $scope.post.tags = response
     })
   }
 

@@ -22,7 +22,8 @@ function UserController ($scope, UserService, $routeParams, type, $location) {
       if (response) {
         window.localStorage.setItem('name', response.name);
         window.localStorage.setItem('email', response.email);
-        $location.path('/user/'+user.id)
+        alert('Usuário alterado!')
+        $location.path('/posts')
       } else {
         $scope.user = {};
       }
@@ -43,7 +44,7 @@ function UserController ($scope, UserService, $routeParams, type, $location) {
           password: window.localStorage.getItem('password')
         }
         $scope.message = null;
-        $location.path('/user/'+ response.id)
+        $location.path('/posts')
       } else {
         $scope.user = {};
       }
@@ -72,6 +73,5 @@ function UserController ($scope, UserService, $routeParams, type, $location) {
       $scope.user = {};
     }
   }
-
   initialize();
 }
