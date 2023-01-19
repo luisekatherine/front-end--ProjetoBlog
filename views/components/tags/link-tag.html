@@ -1,9 +1,13 @@
 <p class="list-tags">Adicionar tags ao post:</p>
-<div class="grid-colums">
-  <div class="list-add-tags" ng-repeat="tag in tags">
-    <p class="tags-list">{{ tag.name | uppercase }} </p>
-    <p class="post-tags" ng-if="!tagOnPost(tag)" ng-click="link(tag)"><i class="gg-add"></i></p>
-    <!-- se não tem tag no post, ele mostrará o mais, pois fiz a negação do "tagOnPost" -->
-    <p class="post-tags" ng-if="tagOnPost(tag)" ng-click="unlink(tag)"><i class="gg-close"></i></p>
+  <div class="grid-colums">
+    <div class="list-add-tags" ng-repeat="tag in tags">
+      <p class="tags-list">{{ tag.name | uppercase }} </p>
+      <p class="post-tags" ng-if="!tagOnPost(tag)" ng-click="link(tag)">
+        <i class="gg-add"></i>
+      </p>
+      <!-- se não tem tag no post, ele mostrará o ícone de "mais", pois fiz a negação do "tagOnPost" -->
+      <p class="post-tags" ng-if="tagOnPost(tag)" ng-click="unlink(tag)">
+        <i class="gg-close"></i>
+      </p>
+    </div>
   </div>
-</div>

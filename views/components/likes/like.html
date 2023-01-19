@@ -1,20 +1,20 @@
 <div ng-if="post && !comment">
-  <div ng-if="post.liked" ng-click="unlikeP(post)">
+  <div ng-if="post.liked" ng-click="unlikePost(post)">
     <i class="gg-heart" style="color: rgb(199, 0, 0);"></i>
   </div>
 </div>
 <div ng-if="post && !comment">
-  <div ng-if="!post.liked" ng-click="likeP(post)">
+  <div ng-if="!post.liked" ng-click="likePost(post)">
     <i class="gg-heart"></i>
   </div>
 </div>
 <div ng-if="comment">
-  <div ng-if="comment.liked" ng-click="unlikeC(comment)">
+  <div ng-if="comment.liked" ng-click="unlikeComment(comment)">
     <i class="gg-heart" style="color: rgb(199, 0, 0);"></i>
   </div>
 </div>
 <div ng-if="comment">
-  <div ng-if="!comment.liked" ng-click="likeC(comment)">
+  <div ng-if="!comment.liked" ng-click="likeComment(comment)">
     <i class="gg-heart"></i>
   </div>
 </div>

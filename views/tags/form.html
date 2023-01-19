@@ -1,11 +1,11 @@
 <h3 class="link-edit-tag"> {{ tag.id ? 'Editar tag' : 'Criar tag'}}</h3>
 <p class="size-tag">(Mínimo 3 caracteres | Máximo 20 caracteres)</p>
-<form ng-submit="save()">
-  <div class="form-container">
-  <input class="input-title input-title--width" type="text" name="name" ng-model="tag.name" placeholder="Titulo da tag" required>
-  <button class="botao-salvar-form" type="submit">Salvar</button>
-</div>
-  <div class="error-edit">
-    {{ message }}
-  </div>
-</form>
+  <form ng-submit="save()">
+    <div class="form-container">
+      <input class="input-title input-title--width" type="text" name="name" ng-model="tag.name" placeholder="Titulo da tag" required>
+      <button class="botao-salvar-form" type="submit">Salvar</button>
+    </div>
+    <div class="error-edit">
+      {{ message }}
+    </div>
+  </form>

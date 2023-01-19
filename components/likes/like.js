@@ -9,28 +9,28 @@ app.directive('like', function () {
     templateUrl: 'views/components/likes/like.html',
     controller: function ($scope, LikeService, $window, $location) {
 
-      $scope.likeP = () => {
+      $scope.likePost = () => {
         LikeService.likePost($scope.post).then(function (response) {
           $scope.post.liked = true
           // $window.location.reload();
         })
       }
 
-      $scope.unlikeP = () => {
+      $scope.unlikePost = () => {
         LikeService.unlikePost($scope.post).then(function (response) {
           // $window.location.reload();
           $scope.post.liked = false
         })
       }
 
-      $scope.likeC = () => {
+      $scope.likeComment = () => {
         LikeService.likeComment($scope.post, $scope.comment).then(function (response) {
           // $window.location.reload();
           $scope.comment.liked = true
         })
       }
 
-      $scope.unlikeC = () => {
+      $scope.unlikeComment = () => {
         LikeService.unlikeComment($scope.post, $scope.comment).then(function (response) {
           // $window.location.reload();
           $scope.comment.liked = false

@@ -1,21 +1,24 @@
-  <form ng-submit="save(comment)">
-    <div class="row">
-        <input class="input-comments"
-               type="text"
-               name="comment"
-               ng-model="comment.text"
-               placeholder="Escreva um comentário"
-               required>
-        <button class="comentar-div" type="submit"> {{ comment.id ? 'Atualizar' : 'Enviar' }}</button>
-    </div>
-  </form>
-    <p class="coment-title">Comentários:</p>
+<form ng-submit="save(comment)">
+  <div class="row">
+    <input class="input-comments"
+            type="text"
+            name="comment"
+            ng-model="comment.text"
+            placeholder="Escreva um comentário"
+            required>
+      <button class="comentar-div" type="submit">
+        {{ comment.id ? 'Atualizar' : 'Enviar' }}
+      </button>
+  </div>
+</form>
+  <p class="coment-title">Comentários:</p>
     <div class="post-comment" ng-repeat="comment in post.comments">
       <div class="container">
         <div class="container-coment">
           <div class="post-comment">
-            {{ comment.text }}
+            <p class="comment-text">{{ comment.text }}</p>
           </div>
+            <p class="comment-created-at">{{ comment.created_at | date:"dd-MM-yyyy ',' h:mma" }}</p>
         </div>
           <div class="options">
             <div class="dropdown" ng-if="$root.currentUser.id == comment.user_id">
@@ -33,7 +36,6 @@
                   </delete>
                 </div>
             </div>
-
             <like class="edit-link" comment="comment" post="post"></like>
           </div>
       </div>
