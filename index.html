@@ -12,6 +12,9 @@
   <link rel="stylesheet" href='https://css.gg/add-r.css'>
   <link rel="stylesheet" href='https://css.gg/close.css'>
   <link rel="stylesheet" href='https://css.gg/add.css'>
+  <link rel="stylesheet" href='https://css.gg/user.css'>
+  <link rel="stylesheet" href='https://css.gg/heart.css'>
+  <link rel="stylesheet" href='https://css.gg/more-vertical-alt.css'>  
   <title>Blog</title>
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 </head>
@@ -63,6 +66,7 @@
         </div>
       </div>
       <div class="profile">
+        <i class="gg-user"></i>
         <strong class="name-header">
           <a href="#/user/{{ currentUser.id }}/edit">{{ currentUser.name }}</a></strong>
         <a href="#" ng-click="logoff()" class="logout">Sair</a>
@@ -82,11 +86,13 @@
   <script type="text/javascript" src="controllers/UsersController.js"></script>
   <script type="text/javascript" src="services/BlogService.js"></script>
   <script type="text/javascript" src="services/CommentService.js"></script>
+  <script type="text/javascript" src="services/LikeService.js"></script>
   <script type="text/javascript" src="services/PostService.js"></script>
   <script type="text/javascript" src="services/TagService.js"></script>
   <script type="text/javascript" src="services/UserService.js"></script>
   <script type="text/javascript" src="components/comments/form.js"></script>
   <script type="text/javascript" src="components/action/delete.js"></script>
+  <script type="text/javascript" src="components/likes/like.js"></script>
   <script type="text/javascript" src="components/tags/link_tag.js"></script>
   <script type="text/javascript" src="components/tags/unlink_tag.js"></script>
 </body>

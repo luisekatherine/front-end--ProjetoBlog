@@ -263,27 +263,30 @@ a{
   background-color: #52b3c9c9;
 }
 
-.edit-content {
-  text-align: right;
+.options {
   align-items: center;
-  color: rgb(36, 84, 241);
-  font-size: 15px;
-  text-align: right;
   cursor: pointer;
   justify-content: flex-end;
   display: flex;
+  margin-bottom: 20px;
+  text-align: right;
 }
 
-.edit-content--justify-content {
+.options--justify-content {
   justify-content: center;
   text-align: center;
+  margin-bottom: 5px;
+}
+
+.options--margin-bottom {
+  margin-bottom: 0px;
 }
 
 .dropdown-content {
   display: none;
 }
 
-.edit-content-dropdown:hover .dropdown-content {
+.options-dropdown:hover .dropdown-content {
   display: block;
 }
 
@@ -303,7 +306,7 @@ a{
   text-align: center;
   font-size: 16px;
   background-color: #F1F3F4;
-  width: 100px;
+  width: 90px;
   height: 40px;
   border: 1px solid #ffffff;
   padding: 8px;
@@ -323,7 +326,7 @@ a{
   font-size: 16px;
   width: 700px;
   margin-bottom: 8px;
-  padding: 40px;  
+  padding: 50px;  
   background-color: #ffffff;
   -webkit-border-radius: 3px;
   border-radius: 5px;
@@ -435,12 +438,17 @@ a{
 
 .dropdown-content a {
   color: grey;
-  padding: 12px 16px;
+  padding: 16px;
   text-decoration: none;
   display: block;
+  border: 2px solid white;
+  border-radius: 5px;
 }
 
-.dropdown-content a:hover {background-color: #52b3c9c9;}
+.dropdown-content a:hover {
+  background-color: #52b3c9c9;
+  font-weight: bold;
+}
 
 .dropdown:hover .dropdown-content {display: block;}
 
@@ -485,13 +493,15 @@ a{
 }
 
 .container-tags-item {
-  display: inline-block;
-  height: 80px;
+  display: inline-flex;
+  width: 20%;
+  flex-direction: column;
   border-radius: 5px;
   margin: 30px;
   text-align: center;
-  padding: 15px;
+  padding: 5px;
   background-color: #ffff;
+  justify-content: space-between;
 }
 
 .container-tags {
@@ -502,8 +512,8 @@ a{
 }
 
 .container-tags-item:hover {
-  -webkit-transform: scale(1.01);
-  transform: scale(1.01);
+  -webkit-transform: scale(1.02);
+  transform: scale(1.02);
   background-color: rgb(255, 255, 255);
   font-size: 20px;
 }
@@ -582,6 +592,12 @@ a{
   color: grey;
 }
 /* comments */
+
+.container {
+ display: flex;
+ justify-content: space-between;
+}
+
 .input-comments {
   font-size: 16px;
   width: 500px;
@@ -602,6 +618,20 @@ a{
   border: 2px solid #F1F3F4;
   background-color: #ffffff;
   border-radius: 0 99999px 99999px 99999px;
+}
+
+.dropdown-comment {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  box-shadow: 0px 8px 16px 0px rgb(186 186 186 / 20%);
+  z-index: 1;
+  border-radius: 5px;
+}
+.dropdown:hover .dropdown-comment {
+  display: block;
+  background-color: #f1f3f4;
+  border: 2px solid white;
 }
 
 .gg-tag {
@@ -694,4 +724,31 @@ a{
   position: relative;
   border: 0px solid transparent;
   color: #b30000a6;
+}
+
+.gg-user {
+  display: block;
+  transform: scale(var(--ggs,1));
+  box-sizing: border-box;
+  width: 12px;
+  height: 18px;
+  color: grey;
+  margin-right: 10px;
+}
+
+.gg-heart {
+  box-sizing: border-box;
+  position: relative;
+  transform:
+      translate(
+          calc(-10px / 2 * var(--ggs,1)),
+          calc(-6px / 2 * var(--ggs,1))
+      )
+      rotate(-45deg)
+      scale(var(--ggs,1));
+  display: block
+}
+
+.gg-heart-unliked--liked {
+  background-color: red;
 }

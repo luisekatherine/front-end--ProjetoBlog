@@ -7,20 +7,35 @@
                placeholder="Escreva um comentário"
                required>
         <button class="comentar-div" type="submit"> {{ comment.id ? 'Atualizar' : 'Enviar' }}</button>
-      </div>
-    </form>
+    </div>
+  </form>
     <p class="coment-title">Comentários:</p>
     <div class="post-comment" ng-repeat="comment in post.comments">
-      <div class="row">
+      <div class="container">
         <div class="container-coment">
-          <div class="post-comment">- {{ comment.text }}</div>
-          <div class="edit-content" ng-if="$root.currentUser.id == comment.user_id">
-            <div class="edit-link" ng-if="$root.currentUser.id == comment.user_id" ng-click="editComment(comment)">
-              <div class="edit-content" ng-if="$root.currentUser.id == comment.user_id" ng-click="editComment(comment)"><i class="gg-pen"></i></div>
-            </div>
-            <delete class="edit-link" comment="comment" post="post"></delete>
+          <div class="post-comment">
+            {{ comment.text }}
           </div>
         </div>
+          <div class="options">
+            <div class="dropdown" ng-if="$root.currentUser.id == comment.user_id">
+              <i class="gg-more-vertical-alt"></i>
+                <div class="dropdown-comment">
+                  <div class="edit-link" ng-click="editComment(comment)">
+                    <div class="edit-content" ng-click="editComment(comment)">
+                      <i class="gg-pen"></i>
+                    </div>
+                  </div>
+                  <delete class="edit-link" 
+                          comment="comment" 
+                          post="post"  
+                          ng-if="$root.currentUser.id == comment.user_id">
+                  </delete>
+                </div>
+            </div>
+
+            <like class="edit-link" comment="comment" post="post"></like>
+          </div>
       </div>
     </div>
   

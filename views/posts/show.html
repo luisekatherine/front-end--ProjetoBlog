@@ -1,14 +1,15 @@
 <div class="container-post">
-<div class="container-tags">
-  <p class="post-tags-header">Tags:
-    <div class="post-tags-header-div" ng-repeat="tag in post.tags"> 
-    <p class="post-tags-header" ng-if="$root.currentUser.id == post.user_id">{{ tag.name | uppercase }} </p>
-    </div>
-  </p>
-
-</div>
-    <div class="edit-content" ng-if="$root.currentUser.id == post.user_id" a href="#/posts/{{ post.id }}/edit">
-      <div class="dropdown">
+  <div class="container-tags">
+    <p class="post-tags-header"><i class="gg-tag"></i>
+      <div class="post-tags-header-div" ng-repeat="tag in post.tags"> 
+        <p class="post-tags-header" ng-if="$root.currentUser.id == post.user_id">
+          {{ tag.name | uppercase }} 
+        </p>
+      </div>
+    </p>
+  </div>
+    <div class="options">
+      <div class="dropdown"  ng-if="$root.currentUser.id == post.user_id">
         <a class="edit-link-tag">
           <i class="gg-tag"></i>
         </a>
@@ -19,7 +20,9 @@
       <a class="edit-link" ng-if="$root.currentUser.id == post.user_id" href="#/posts/{{ post.id }}/edit">
         <i class="gg-pen"></i>
       </a>
-      <delete class="edit-link" post="post"></delete>
+      <delete class="edit-link" post="post"  ng-if="$root.currentUser.id == post.user_id">
+      </delete>
+      <like class="edit-link" post="post" ng-click="likeP(post)"></like>
     </div>
     <p class="post-name">{{ post.title | uppercase }}</p>
     <div class="post-description"><p class="post-description"> {{ post.description }} </p>
