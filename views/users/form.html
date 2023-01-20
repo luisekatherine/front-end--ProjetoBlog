@@ -1,32 +1,32 @@
 <div class="sign-in" ng-if="!user.id">
-  <p>Already have an account? <a class="newtoblog" href="http://localhost/blog/"> Sign in →</a></p>
+  <p>Já possui uma conta? <a class="newtoblog" href="http://localhost/blog/"> Clique aqui →</a></p>
 </div>
   <div class="form-create-an-account">
     <div class="container-fluid">
-      <h1 class="head-cabecalho">{{ user.id ? 'Edit user' : 'Criate user'}}</h1>
+      <h1 class="head-cabecalho">{{ user.id ? 'Editar usuário' : 'Novo usuário'}}</h1>
       <form ng-submit="save(user)">
-        <label class="label-input">Name</label>
+        <label class="label-input">Nome</label>
         <input type="text" 
                name="username" 
                ng-model="user.username" 
-               placeholder="Name" 
+               placeholder="Digite seu nome" 
                required="required" 
                class="input-form">
         <label class="label-input">Email</label>
         <input type="text" 
                name="email"
                ng-model="user.email" 
-               placeholder="Email address" 
+               placeholder="Digite seu email" 
                required="required" 
                class="input-form">
-        <label class="label-input">Password</label>
+        <label class="label-input">Senha</label>
         <input type="password"
                name="password" 
                ng-model="user.password" 
-               placeholder="Password" 
+               placeholder="Digite sua senha" 
                required="required" 
                class="input-form">
-        <button type="submit" class="botao">{{ user.id ? 'Edit' : 'Criate'}}</button>
+        <button type="submit" class="botao">{{ user.id ? 'Enviar' : 'Cadastrar'}}</button>
         <div class="error-login">
           {{ message }}
         </div>

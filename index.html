@@ -22,27 +22,27 @@
 <body ng-controller="blogController">
   <div class="form-login" ng-if="notLogged()">
     <div class="container-fluid">
-      <h1 class="head-cabecalho">Sign in to Blog</h1>
+      <h1 class="head-cabecalho">Entrar no Blog</h1>
       <form ng-submit="submitLogin()">
         <label class="label-input">Email</label>
         <input type="text" 
                name="username" 
                ng-model="login.username" 
-               placeholder="Email address" 
+               placeholder="Digite seu email" 
                required="required" 
                class="input-form">
-        <label class="label-input">Password</label>
+        <label class="label-input">Senha</label>
         <input type="password"
                name="password" 
                ng-model="login.password" 
-               placeholder="Password" 
+               placeholder="Digite sua senha" 
                required="required" 
                class="input-form">
-        <button type="submit" class="botao">Sign in</button>
+        <button type="submit" class="botao">Entrar</button>
         <div class="error-login">
           {{ message }}
         </div>
-        <p style="text-align: center; color: grey;">New to Blog? <a class="newtoblog" href="#/user/new">Create an account</a></p>
+        <p style="text-align: center; color: grey;">Novo no Blog? <a class="newtoblog" href="#/user/new">→ Clique aqui</a></p>
       </form>
     </div>
   </div>

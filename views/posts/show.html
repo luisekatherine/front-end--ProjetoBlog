@@ -8,32 +8,32 @@
       </div>
     </p>
   </div>
-    <div class="options">
-      <div class="dropdown"  ng-if="$root.currentUser.id == post.user_id">
-        <a class="edit-link-tag">
-          <i class="gg-tag"></i>
-        </a>
-          <div class="dropdown-content-tag">
-              <link-tag post="post" tag="tag" on-link-tag="onLinkTag()"></link-tag>
-          </div>
-      </div>
-      <a class="edit-link" 
-          ng-if="$root.currentUser.id == post.user_id" 
-          href="#/posts/{{ post.id }}/edit">
-        <i class="gg-pen"></i>
+  <div class="options">
+    <div class="dropdown"  ng-if="$root.currentUser.id == post.user_id">
+      <a class="edit-link-tag">
+        <i class="gg-tag"></i>
       </a>
-      <delete class="edit-link" post="post"  ng-if="$root.currentUser.id == post.user_id">
-      </delete>
-      <like class="edit-link" post="post" ng-click="likePost(post)"></like>
+      <div class="dropdown-content-tag">
+          <link-tag post="post" tag="tag" on-link-tag="onLinkTag()"></link-tag>
+      </div>
     </div>
-      <p class="post-name">{{ post.title | uppercase }}</p>
-        <div class="post-description">
-          <p class="post-description"> {{ post.description }} </p>
-          <p class="post-created-at"> {{ post.created_at | date:"dd-MM-yyyy ',' h:mma" }} </p>
-        </div>
-      <comment-form post-id="post.id" 
-                    callback="onComment()" 
-                    current-comment="currentComment" 
-                    post="post">
-      </comment-form>
+    <a class="edit-link" 
+        ng-if="$root.currentUser.id == post.user_id" 
+        href="#/posts/{{ post.id }}/edit">
+      <i class="gg-pen"></i>
+    </a>
+    <delete class="edit-link" post="post" ng-if="$root.currentUser.id == post.user_id">
+    </delete>
+    <like class="edit-link" post="post" ng-click="likePost(post)"></like>
+  </div>
+  <p class="post-name">{{ post.title | uppercase }}</p>
+  <div class="post-description">
+    <p class="post-description"> {{ post.description }} </p>
+    <p class="post-created-at"> {{ post.updated_at | date:"dd/MM/yyyy ',' h:mma" }} </p>
+  </div>
+  <comment-form post-id="post.id" 
+                callback="onComment()" 
+                current-comment="currentComment" 
+                post="post">
+  </comment-form>
 </div>

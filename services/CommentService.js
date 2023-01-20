@@ -14,10 +14,9 @@ app.service('CommentService', ['$http', function ($http) {
     comment: {
       text: comment.text,
     } 
-  })
-    .then(function (response) {
-      return response.data;
-    });
+  }).then(function (response) {
+    return response.data;
+  });
 
   const create = (comment) => $http.post('http://localhost:3000/posts/'+comment.postId+'/comments', {
     comment: {

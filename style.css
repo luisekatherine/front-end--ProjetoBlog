@@ -587,6 +587,7 @@ a {
   text-align: center;
   color: grey;
 }
+
 /* comments */
 
 .container {
@@ -641,6 +642,8 @@ a {
   background-color: #f1f3f4;
   border: 2px solid white;
 }
+
+/* icons  */
 
 .gg-tag {
   border-right: 0;
@@ -755,8 +758,4 @@ a {
       rotate(-45deg)
       scale(var(--ggs,1));
   display: block
-}
-
-.gg-heart-unliked--liked {
-  background-color: red;
 }

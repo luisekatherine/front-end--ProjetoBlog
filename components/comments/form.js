@@ -8,7 +8,7 @@ app.directive('commentForm', function () {
       callback: '&?',
     },
     templateUrl: 'views/components/comments/form.html',
-    controller: function ($scope, $window, CommentService) {
+    controller: function ($scope, CommentService) {
       $scope.save = () => {
         if ($scope.comment.id) {
           let updateComment = {
